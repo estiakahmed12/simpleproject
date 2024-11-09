@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Exam</title>
+  </head>
+  <body>
+    <div class="flex">
+      <!-- Side Bar -->
+      <div class="flex flex-col w-52 min-h-screen bg-gray-800 p-4 space-y-4">
+        <div class="grow">
+          <div class="mb-10">
+            <img
+              src="./public/src/img/logo.jpeg"
+              alt="Logo"
+              class="w-56 h-auto rounded-xl"
+            />
+          </div>
+          <div class="">
+            <nav class="flex flex-col space-y-4">
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-gray-400 hover:text-white hover:bg-gray-700 rounded"
+              >
+                <i class="fa-solid fa-gauge mr-5"></i> Dashboard
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-gray-400 hover:text-white hover:bg-gray-700 rounded"
+              >
+                <i class="fa-regular fa-message mr-5"></i> My Article
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-gray-400 hover:text-white hover:bg-gray-700 rounded"
+              >
+                <i class="fa-solid fa-rss mr-5"></i> My Post
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-gray-400 hover:text-white hover:bg-gray-700 rounded"
+              >
+                <i class="fa-solid fa-tree mr-5"></i> My Plan
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-gray-400 hover:text-white hover:bg-gray-700 rounded"
+              >
+                <i class="fa-solid fa-chart-gantt mr-5"></i> Status
+              </a>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-gray-400 hover:text-white hover:bg-gray-700 rounded"
+              >
+                <i class="fa-solid fa-gear mr-5"></i> Settings
+              </a>
+            </nav>
+          </div>
+        </div>
+        <div
+          class="sticky bottom-0 z-10 h-32 w-auto bg-gray-600 rounded-md space-y-4"
+        >
+          <div class="ml-2 text-white">4/5 Generations</div>
+          <div class="ml-2 p-2 w-28 bg-purple-800 rounded shadow-sm"></div>
+          <button
+            class="h-10 ml-2 p-2 w-[140px] bg-gradient-to-r from-customPurple to-purple-500 text-white rounded-md"
+          >
+            <i class="fa-solid fa-rocket"></i> Upgrade
+          </button>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="flex flex-col grow">
+        <!-- Header -->
+        <div class="flex gap-2 items-center p-4">
+          <div class="flex h-8 w-8 items-center justify-center bg-pink-100">
+            <i class="fa-solid fa-rss fa-2x"></i>
+          </div>
+          <div>
+            <p class="text-xl font-semibold text-black">Post</p>
+            <p>Our most advanced post generations model</p>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="grow p-4">
+          <!-- Tab Buttons -->
+          <div class="flex gap-4 items-center justify-center mb-4">
+            <button
+              id="tableViewBtn"
+              class="p-2 rounded-md hover:bg-slate-400 active:bg-green-200"
+            >
+              Table View
+            </button>
+            <button
+              id="cardViewBtn"
+              class="p-2 rounded-md hover:bg-slate-400 active:bg-green-200"
+            >
+              Card View
+            </button>
+          </div>
+
+          <!-- Website Selection -->
+          <div class="p-2 bg-websitesection rounded-md mb-4">
+            <p class="font-medium">Website Selection:</p>
+            <p class="ml-4 space-x-2">
+              Technology & Gadgets
+              <i class="fa-regular fa-eye"></i>
+              <i class="fa-solid fa-trash"></i>
+            </p>
+          </div>
+
+          <!-- Card View -->
+          <div id="cardData" class="grid grid-cols-3 gap-4">
+            <!-- Card items will be injected here by JavaScript -->
+          </div>
+
+          <!-- Table View -->
+          <div id="tableContainer" class="overflow-auto hidden">
+            <table class="min-w-full border border-black">
+              <thead>
+                <tr class="bg-black text-white">
+                  <th
+                    class="h-20 w-36 px-4 py-2 border border-black text-center"
+                  >
+                    Image
+                  </th>
+                  <th
+                    class="h-10 w-auto px-4 py-2 border border-black text-center"
+                  >
+                    Title
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="tableData">
+                <!-- Table rows will be injected here by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const data = [
+        {
+          imageSrc: "./public/src/img/google.jpg",
+          altText: "Google",
+          title: "The Rise of Google Home & Google 'Action'",
+        },
+        {
+          imageSrc: "./public/src/img/map.jpg",
+          altText: "Google",
+          title: "Google Maps now has a video feature for Android",
+        },
+        {
+          imageSrc: "./public/src/img/ios18.jpg",
+          altText: "Google",
+          title: "iOS 18: New text format and effects in messengers",
+        },
+        {
+          imageSrc: "./public/src/img/phone.jpg",
+          altText: "Google",
+          title: "New anti-theft feature rolling out on Android 15",
+        },
+        {
+          imageSrc: "./public/src/img/trick.jpg",
+          altText: "Google",
+          title: "Secret trick to send a text",
+        },
+        {
+          imageSrc: "./public/src/img/speacker.jpg",
+          altText: "Google",
+          title: "Set up your smart speaker",
+        },
+      ];
+
+      // Card View
+      const cardData = document.getElementById("cardData");
+      let cardsHTML = "";
+      for (let i = 0; i < data.length; i++) {
+        const item = `
+          <div class="mt-2 shadow-md rounded-md">
+            <img src="${data[i].imageSrc}" alt="${data[i].altText}" class="h-32 w-full rounded-md object-cover" />
+            <p class="font-medium p-2">${data[i].title}</p>
+          </div>
+        `;
+        cardsHTML += item;
+      }
+      cardData.innerHTML = cardsHTML;
+
+      // Table View
+      const tableData = document.getElementById("tableData");
+      let tableHTML = "";
+      for (let i = 0; i < data.length; i++) {
+        const row = `
+          <tr class="border border-black">
+            <td class="p-2 border border-black text-center">
+              <img src="${data[i].imageSrc}" alt="${data[i].altText}" class="h-10 w-16 object-cover mx-auto rounded">
+            </td>
+            <td class="p-2 border border-black text-center text-black">${data[i].title}</td>
+          </tr>
+        `;
+        tableHTML += row;
+      }
+      tableData.innerHTML = tableHTML;
+
+      // Toggle Views
+      const tableContainer = document.getElementById("tableContainer");
+      const tableViewBtn = document.getElementById("tableViewBtn");
+      const cardViewBtn = document.getElementById("cardViewBtn");
+
+      tableViewBtn.addEventListener("click", () => {
+        tableContainer.classList.remove("hidden");
+        cardData.classList.add("hidden");
+      });
+
+      cardViewBtn.addEventListener("click", () => {
+        cardData.classList.remove("hidden");
+        tableContainer.classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>

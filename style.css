@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.activebtn {
+  background-color: green;
+  color: white;
+}
+
+.activecard {
+  display: grid;
+  grid-template-columns: repeat(1fr, 3);
+  gap: 8px;
+}
